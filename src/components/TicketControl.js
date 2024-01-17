@@ -110,7 +110,6 @@ class TicketControl extends React.Component {
       </React.Fragment>
     );
   }
-
 }
 
 TicketControl.propTypes = {
@@ -128,4 +127,3 @@ const mapStateToProps = state => {
 TicketControl = connect(mapStateToProps)(TicketControl);
 
 export default TicketControl;
-

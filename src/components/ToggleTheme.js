@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ToggleTheme(props) {
-  const { toggleTheme } = props;
+  const {theme, toggleTheme} = props;
+
+  if (!theme) {
+    throw new Error("ThemeContext must be used within a ThemeContext.Provider!");
+  }
 
   const styles = { 
     backgroundColor: theme.buttonBackground, 

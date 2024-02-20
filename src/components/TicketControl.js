@@ -3,6 +3,7 @@ import NewTicketForm from './NewTicketForm';
 import TicketList from './TicketList';
 import EditTicketForm from './EditTicketForm';
 import TicketDetail from './TicketDetail';
+
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import db from './../firebase.js';
 
@@ -81,6 +82,17 @@ function TicketControl() {
     const selection = mainTicketList.filter(ticket => ticket.id === id)[0]; // selection : so there's no clash with the state variable 'selectedTicket'
     setSelectedTicket(selection);
   }
+  render(){
+    let theme = this.context;
+
+    if (!theme) {
+      throw new Error("ThemeContext must be used within a ThemeContext.Provider!");
+    }
+  
+    const buttonStyles = { 
+      backgroundColor: theme.buttonBackground, 
+      color: theme.textColor, 
+    }
 
 
   let currentlyVisibleState = null;
